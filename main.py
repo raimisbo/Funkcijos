@@ -12,8 +12,6 @@ def skaiciai():
     a = random.randint(0, 3)
     b = random.randint(0, 7)
     result = a + b
-    print(f"Skaiciai : {a} ir {b}")
-    print("Suma:", result)
     return result
 
 print(f"Funkcijos grazinimas: {skaiciai()}")
@@ -84,14 +82,48 @@ print('=============Uzs.7===============')
 # Sukurkite Funkciją kuri panaudotų 6-toje užduotyje sugeneruotą masyvą (priimtų kaip kintamąjį), susumuotų ir grąžintų reikšmę.
 
 def suma_mas(generuoti_mas):
-    return sum(masyvas)
+    return sum(generuoti_mas)
 
 suma = suma_mas(masyvas)
-print(suma)
+print(f'Masyvo nariu skaitiniu reiksmiu suma: {suma}')
 
 print('=============Uzd.8===============')
 
+# Sukurkite Funkciją kuri priimtų 6toje užduotyje sugeneruotą masyvą ir gražintų jos skaičių vidurkį (double). Kas tas (double?)
 
+def vidurkis(masyvas):
+    return sum(masyvas) / len(masyvas)
 
+print(f'Vidurkis: {vidurkis(masyvas)}')
 
+print('================Uzd.9====================')
 
+# Sukurkite Funkciją kuri priimtų du int skaičius ir atspausdintų stačiakampį užpildytą žvaigždutėmis. Pirmas int - išoriniam ciklui, antras vidiniam.
+
+def staciak(aukstis: int, plotis: int):
+    for _ in range(aukstis):
+        print('*' * plotis)
+
+staciak(5,10)
+
+print('==================Uzd.10==================')
+
+# Sukurkite Funkciją kuri priimtų sakinį kaip kintamąjį ir atspausdintų kiek jame yra raidžių(simbolių) ir tarpų. Sakinys - “Šiandien labai graži diena”. (kodas turi veikti padavus bet kokį sakinį) (simboliu yra 23, tarpu yra 3)
+
+def skaiciuoti_simbolius_ir_tarpus(sakinys: str):
+    simboliu_kiekis = len(sakinys)
+    tarpu_kiekis = sakinys.count(' ')
+
+    print(f'Simboliu yr: {simboliu_kiekis}, tarpu yra: {tarpu_kiekis}')
+
+skaiciuoti_simbolius_ir_tarpus("Sunkiausia yra pagauti uzdavinio logika")
+
+print('====================Uzd.11=================')
+
+# Sukurkite Funkciją kuri priimtų sakinį, jį užkoduotų ir grąžintų. Kodavimas - sakinį apsukame iš kitos pusės. Pvz “Naglis” turi gautis “silgaN”.
+
+def uzkoduoti(sakinys: str):
+    return sakinys[::-1]
+
+uzkoduotas = uzkoduoti("Naglis")
+print(uzkoduotas)

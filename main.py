@@ -156,7 +156,7 @@ def generateRndStr(length):
 rnd_str = (generateRndStr(10))
 print(rnd_str)
 
-def kita_funkcija(txt):
+def symb_lett_digit(txt):
     nums = ""
     for symbol in txt:
         if symbol.isdigit():
@@ -166,9 +166,16 @@ def kita_funkcija(txt):
                 print(f'[{nums}]')
                 nums = ""
             print(symbol)
+    if nums:
+        print(f'[{nums}]')
+symb_lett_digit(rnd_str)
 
-kita_funkcija(rnd_str)
+print('=========================Uzd.3=========================')
 
+# Parašykite funkciją, kuri skaičiuotų, ir gražintų iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save). Pvz padavus 10 turi grąžinti 2, o padavus 20 gražintų 3
+
+
+def
 
 
 

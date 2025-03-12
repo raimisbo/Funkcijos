@@ -1,3 +1,4 @@
+import math
 import random
 
 print("FUNKCIJOS")
@@ -6,7 +7,6 @@ print("=======================UZDAVINIAI==========================")
 print("================uzd.1=================")
 
 # Sukurkite Funkciją kuri priima du int tipo kintamuosius. Juos susumuoja ir atspausdina.
-
 
 def skaiciai():
     a = random.randint(0, 3)
@@ -44,7 +44,6 @@ print('===================Uzd.4=====================')
 
 # Sukurkite Funkciją kuri priima masyvą, prasuka ciklą ir atspausdina kiekvieną narį vienoje eilutėje.
 
-
 mas = []
 def masyvas_a(mas):
 
@@ -54,7 +53,6 @@ def masyvas_a(mas):
     return mas
 
 print(masyvas_a(mas))
-
 
 print("=============Uzd.5=================")
 
@@ -103,7 +101,6 @@ print('================Uzd.9====================')
 def staciak(aukstis: int, plotis: int):
     for i in range(aukstis):
         print('*' * plotis)
-
 
 staciak(5,10)
 
@@ -161,7 +158,7 @@ def symb_lett_digit(txt):
     for symbol in txt:
         if symbol.isdigit():
             nums += symbol
-        else:                       # else:# jeigu turiu prikaupes skaiciu, atspausdinu ir isvalau kintamaji [54]
+        else:          # else:# jeigu turiu prikaupes skaiciu, atspausdinu ir isvalau kintamaji [54]
             if nums:
                 print(f'[{nums}]')
                 nums = ""
@@ -174,15 +171,85 @@ print('=========================Uzd.3=========================')
 
 # Parašykite funkciją, kuri skaičiuotų, ir gražintų iš kiek sveikų skaičių jos argumentas dalijasi be liekanos (išskyrus vienetą ir patį save). Pvz padavus 10 turi grąžinti 2, o padavus 20 gražintų 3
 
+def dividers(dig):
+    skaicius = 0
+    for i in range(2, math.ceil(math.sqrt(dig))):
+        if dig % i == 0:
+            skaicius += 1
+    return skaicius
 
-def
+print(dividers(29))
+
+print('==================Uzd.4===================')
+
+# Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 33 iki 77. Išrūšiuokite masyvą pagal daliklių be liekanos kiekį mažėjimo tvarka, panaudodami trečio uždavinio funkciją.
+
+mas_4 = [random.randint(33, 77) for _ in range(100)]
+
+for i in range(len(mas_4)):
+        for r in range(i + 1, len(mas_4)):
+            if dividers(mas_4[i]) < dividers(mas_4[r]):
+                print(f'{mas_4[i]} turi {dividers(mas_4[i])} daliklius < {mas_4[r]} turi {dividers(mas_4[r])} daliklius')
+                mas_4[i], mas_4[r] = mas_4[r], mas_4[i]
+
+print(mas_4)
+
+print('============================Uzd.5==================================')
+
+# Sugeneruokite masyvą iš 100 elementų, kurio reikšmės atsitiktiniai skaičiai nuo 333 iki 777.
+# Naudodami 3 uždavinio funkciją iš masyvo suskaičiuokite kiek yra pirminių skaičių.
+
+mas_5 = [random.randint(333, 777) for _ in range(100)]
+print(mas_5)
+
+def prime_dig(skaicius):
+    if skaicius <= 1:
+        return False
+    for i in range(2, int(skaicius / 2) + 1):
+        if skaicius % i == 0:
+            return False
+    return True
+
+def prime_from(mas_5):
+    pirminiai_skaiciai = [skaicius for skaicius in mas_5 if prime_dig(skaicius)]
+    return pirminiai_skaiciai
+
+pirminiai_skaiciai = (prime_from(mas_5))
+surusiuoti_pirminiai = pirminiai_skaiciai
+surusiuoti_pirminiai.sort()
+print(f'Pirminiai skaiciai is masyvo mas_5 ir surusiuoti yra: {surusiuoti_pirminiai}')
+
+print('=====================Uzd. 6=========================')
+
+# Sugeneruokite atsitiktinio (nuo 10 iki 20) ilgio masyvą, kurio visi, išskyrus paskutinį, elementai yra atsitiktiniai skaičiai nuo 0 iki 10, o paskutinis - masyvas, kuris generuojamas pagal tokią pat salygą kaip ir pirmasis masyvas. Viską pakartokite atsitiktinį nuo 10 iki 30  kiekį kartų. Paskutinio masyvo paskutinis elementas yra lygus 0;
+
+def generate_masyv():
+    length = random.randint(10, 20)
+    mas_6s = [random.randint(0, 10) for _ in range(length - 1)]
+    mas_6s. append(random.randint(0, 10))
+    return mas_6s
+
+kartai = random.randint(10, 30)
+for _ in range(kartai):
+    mas_6s = generate_masyv()
+    mas_6s[-1] = 0
+    last_mas_6s = generate_masyv()
+    last_mas_6s[-1] = 0
+    mas_6s.append(last_mas_6s)
+    print(mas_6s)
+
+# arr = [masyvas_s6_random]
+# arr.append(masyvas_s6_random_last)
+# kartai = random.randint(10, 30)
+# for _ in range(kartai):
+#     print(arr)
 
 
-
-
-
-
-
-
-
+#     masyvas_s6_len = random.randint(10, 20)
+# masyvas_s6_random = [random.randint(0, 10) for _ in range(masyvas_s6_len)]
+# masyvas_s6_random_last = [random.randint(0,10) for _ in range(masyvas_s6_len)]
+# masyvas_s6_random_last[-1] = 0
+#
+# print(masyvas_s6_random_last)
+#
 
